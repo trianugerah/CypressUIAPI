@@ -20,8 +20,8 @@ describe('Automation web Midtrans', () => {
     it('Verify user success create payment', () => {
         midTransPage.buyNowBtn()
         midTransPage.inputMidtransPillow(MidtransPillow)
-		midTransPage.inputName(Name)
-		midTransPage.inputEmail(Email)
+	midTransPage.inputName(Name)
+	midTransPage.inputEmail(Email)
         midTransPage.inputPhoneNo(PhoneNo)
         midTransPage.inputCity(City)
         midTransPage.inputAddress(Address)
@@ -38,8 +38,8 @@ describe('Automation web Midtrans', () => {
     it('Verify user failed validate credit card payment', () => {
         midTransPage.buyNowBtn()
         midTransPage.inputMidtransPillow(MidtransPillow)
-		midTransPage.inputName(Name)
-		midTransPage.inputEmail(Email)
+	midTransPage.inputName(Name)
+	midTransPage.inputEmail(Email)
         midTransPage.inputPhoneNo(PhoneNo)
         midTransPage.inputCity(City)
         midTransPage.inputAddress(Address)
