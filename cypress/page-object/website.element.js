@@ -13,28 +13,28 @@ export default class midTransPage {
     static inputMidtransPillow(midTransPillow) {
         cy.get('.text-right').find('[type="number"]').clear()
         .type(midTransPillow)
-		cy.wait(2000)
+	cy.wait(2000)
 	}
 
 	static inputName() {
         let name = faker.name.fullName()
         cy.get('[value="Budi"]').clear().type(name)
         cy.get('[value=Budi]').should('have.value', name)
-		cy.wait(2000)
+	    cy.wait(2000)
 	}
 
 	static inputEmail() {
         let email = faker.internet.email()
         cy.get('[value="budi@utomo.com"]').clear().type(email)
         cy.get('[type="email"]').should('have.value',email)
-		cy.wait(2000)
+	    cy.wait(2000)
 	}
 
     static inputPhoneNo() {
         let phoneNo = faker.phone.number()
         cy.get('[value="081808466410"]').clear().type(phoneNo)
         cy.get('[value="081808466410"]').should('have.value', phoneNo)
-		cy.wait(2000)
+	    cy.wait(2000)
 	}
 
 	static inputCity() {
@@ -54,13 +54,13 @@ export default class midTransPage {
         let postalCode = faker.address.zipCode()
         cy.get('[value="10220"]').clear().type(postalCode)
         cy.get('[value="10220"]').should('have.value', postalCode)
-		cy.wait(2000)
+	cy.wait(2000)
 	}
 
-    static clickButtonCheckout() {
+        static clickButtonCheckout() {
         cy.get('.cart-checkout').should('have.text', 'CHECKOUT')
         cy.get('.cart-checkout').click()
-		cy.wait(2000)
+	cy.wait(2000)
 	}
 
 	static chooseCreditCard() {
@@ -69,7 +69,7 @@ export default class midTransPage {
         .its('0.contentDocument.body')
         .should('be.visible')
         .contains('Credit/debit card').click()
-		cy.wait(2000)
+	cy.wait(2000)
 	}
 
     static inputDataCard(cardNumber, expDate, cvvNumber) {
@@ -94,17 +94,17 @@ export default class midTransPage {
     }
 
     static inputInvalidCardNumber(CardNumber) {
-		cy.get('#snap-midtrans')
-		.its('0.contentDocument.body')
-		.xpath("//input[@autocomplete='cc-number']")
-		.type(CardNumber)
-		.should('have.value', '4811 1111 1111 1111');
-	  	cy.wait(1000)
+	cy.get('#snap-midtrans')
+	.its('0.contentDocument.body')
+	.xpath("//input[@autocomplete='cc-number']")
+	.type(CardNumber)
+	.should('have.value', '4811 1111 1111 1111');
+	 cy.wait(1000)
 	}
 
     static verifyInfoInvalidCard(){
         cy.get('#snap-midtrans')
-		.its('0.contentDocument.body')
+	.its('0.contentDocument.body')
         .contains('Make sure your card number are correct.')
     }
 
@@ -116,33 +116,33 @@ export default class midTransPage {
         .wait(2000)
     }
 
-	static inputPasswordCode(passwordCode) {
-		cy.frameLoaded('#snap-midtrans')
-		cy.iframe()
-		.find('#app')
-		.find('.iframe-3ds')
-		.its('0.contentDocument.body')
-		.xpath('//*[@id="PaRes"]')
-		.type(passwordCode)
+    static inputPasswordCode(passwordCode) {
+	cy.frameLoaded('#snap-midtrans')
+	cy.iframe()
+	.find('#app')
+	.find('.iframe-3ds')
+	.its('0.contentDocument.body')
+	.xpath('//*[@id="PaRes"]')
+	.type(passwordCode)
         .wait(1000)
         cy.iframe().find('#app').find('.iframe-3ds').its('0.contentDocument.body').contains('OK').click()
-	}
+    }
 
     static clickOkButton() {
-		cy.iframe()
+	cy.iframe()
         .find('#app')
         .find('.iframe-3ds')
         .its('0.contentDocument.body')
         .contains('OK').click()
-	}
+    }
 
     static verifyUserSuccessTrx() {
         cy.frameLoaded('#snap-midtrans')
-		cy.iframe().contains('Your transaction is being processed')
-		cy.iframe().contains("Back to merchant's web").click()
-		cy.wait(1000)
+	cy.iframe().contains('Your transaction is being processed')
+	cy.iframe().contains("Back to merchant's web").click()
+	cy.wait(1000)
         cy.contains('Thank you for your purchase.')
-		cy.contains('Get a nice sleep.')
+	cy.contains('Get a nice sleep.')
     }
 
 }
