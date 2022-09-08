@@ -1,5 +1,6 @@
 require('cypress-xpath')
 require('cypress-iframe')
+import { faker } from '@faker-js/faker';
 
 
 export default class midTransPage {
@@ -15,36 +16,42 @@ export default class midTransPage {
 		cy.wait(2000)
 	}
 
-	static inputName(name) {
+	static inputName() {
+        let name = faker.name.fullName()
         cy.get('[value="Budi"]').clear().type(name)
         cy.get('[value=Budi]').should('have.value', name)
 		cy.wait(2000)
 	}
 
-	static inputEmail(email) {
+	static inputEmail() {
+        let email = faker.internet.email()
         cy.get('[value="budi@utomo.com"]').clear().type(email)
         cy.get('[type="email"]').should('have.value',email)
 		cy.wait(2000)
 	}
 
-    static inputPhoneNo(phoneNo) {
+    static inputPhoneNo() {
+        let phoneNo = faker.phone.number()
         cy.get('[value="081808466410"]').clear().type(phoneNo)
         cy.get('[value="081808466410"]').should('have.value', phoneNo)
 		cy.wait(2000)
 	}
 
-	static inputCity(City) {
-        cy.get('[value="Jakarta"]').clear().type(City)
-        cy.get('[value="Jakarta"]').should('have.value', City)
+	static inputCity() {
+        let city = faker.address.city()
+        cy.get('[value="Jakarta"]').clear().type(city)
+        cy.get('[value="Jakarta"]').should('have.value', city)
 		cy.wait(2000)
 	}
 
-	static inputAddress(Address) {
-		cy.get('textarea').clear().type(Address)
+	static inputAddress() {
+        let address = faker.address.streetAddress()
+		cy.get('textarea').clear().type(address)
 		cy.wait(2000)
 	}
 
-	static inputPostalCode(postalCode) {
+	static inputPostalCode() {
+        let postalCode = faker.address.zipCode()
         cy.get('[value="10220"]').clear().type(postalCode)
         cy.get('[value="10220"]').should('have.value', postalCode)
 		cy.wait(2000)

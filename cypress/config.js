@@ -1,11 +1,6 @@
 
 export const BASE_URL_Midtrans = 'https://demo.midtrans.com/'
-export const Email = 'trianugerah@gmail.com'
-export const Name = 'Tri Anugrah'
-export const PhoneNo = '085694441379'
-export const City = 'Bogor'
-export const Address = 'Jalan sunting ciberem'
-export const PostalCode = '16135'
+
 export const CardNumber = '4811111111111114'
 export const InvalidCardNumber = '4811 1111 1111 1111'
 export const ExpirationDate = '0223'
